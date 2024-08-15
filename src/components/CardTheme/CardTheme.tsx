@@ -1,6 +1,12 @@
 import React from "react";
+import Theme from "../../models/Theme";
+import { Link } from "react-router-dom";
 
-function CardTheme() {
+interface CardThemeProps {
+  theme: Theme;
+}
+
+function CardTheme({ theme }: CardThemeProps) {
   return (
     <section className="p-10">
       <div className="w-[20vw] relative group overflow-hidden p-8 rounded-xl bg-gray-800  dark:bg-gray-900">
@@ -10,15 +16,25 @@ function CardTheme() {
         ></div>
         <div className="relative">
           <div className="mt-6 pb-6">
-            <h3 className="text-lime-400 text-2xl text-center font-Gilroy-Black">Tema:</h3>
+            <h3 className="text-lime-400 text-2xl text-center font-Gilroy-Black">
+              Tema
+            </h3>
             <p className="text-white text-lg text-center font-Gilroy-Black">
-              Descrição:
+              {theme.description}
             </p>
           </div>
 
           <div className="flex gap-3 -mb-8 py-4 border-t justify-center">
-            <button className="m-3 text-center text-white bg-lime-400 h-[3rem] w-[5rem] rounded-lg font-Gilroy-Black">Editar</button>
-            <button className="m-3 text-center text-white bg-red-600 h-[3rem] w-[5rem] rounded-lg font-Gilroy-Black">Deletar</button>
+            <Link to={`/editTheme/${theme.id}`}>
+              <button className="m-3 text-center text-white bg-lime-400 h-[3rem] w-[5rem] rounded-lg font-Gilroy-Black">
+                Editar
+              </button>
+            </Link>
+            <Link to={`/deleteTheme/${theme.id}`}>
+              <button className="m-3 text-center text-white bg-red-600 h-[3rem] w-[5rem] rounded-lg font-Gilroy-Black">
+                Deletar
+              </button>
+            </Link>
           </div>
         </div>
       </div>
