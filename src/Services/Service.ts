@@ -19,6 +19,7 @@ export const apiSearchGet = async (
   header: Object
 ) => {
   const response = await api.get(url, header);
+  setData(response.data);
 };
 
 export const apiPost = async (

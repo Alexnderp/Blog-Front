@@ -13,7 +13,7 @@ function Register() {
     name: "",
     email: "",
     password: "",
-    photo: "",
+    photo: null,
   });
 
   const [userResponse, setUserResponse] = useState<User>({
@@ -21,7 +21,7 @@ function Register() {
     name: "",
     email: "",
     password: "",
-    photo: "",
+    photo: null,
   });
 
   useEffect(() => {
@@ -33,6 +33,10 @@ function Register() {
   function back() {
     navigate("/");
   }
+
+  const handleImageChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    setUser({ ...user, photo: e.target.files[0] });
+  };
 
   function handleConfirmPassword(e: ChangeEvent<HTMLInputElement>) {
     setConfirmPassword(e.target.value);
@@ -47,6 +51,12 @@ function Register() {
 
   async function registerNewUser(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("photo", user.photo!);
+    formData.append("name", user.name);
+    formData.append("email", user.email);
+    formData.append("password", user.password);
 
     if (confirmPassword === user.password && user.password.length >= 8) {
       try {
@@ -71,6 +81,7 @@ function Register() {
           className="h-[80vh]"
         />
         <form
+          encType="multipart/form-data"
           className="flex flex-col justify-center bg-gray-600 p-3 rounded-lg w-[25rem] h-[32rem] shadow-[-11px_-10px_20px_10px_#00000024]"
           onSubmit={registerNewUser}
         >
@@ -134,8 +145,7 @@ function Register() {
             name="photo"
             type="file"
             accept="image/jpeg, image/png"
-            value={user.photo}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => updateState(e)}
+            onChange={handleImageChange}
             className="rounded-lg m-2  text-gray-600 text-sm font-semibold bg-white"
           />
           <button

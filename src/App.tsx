@@ -7,6 +7,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Register from "./pages/Register/Register";
 import ThemesList from "./components/ThemesList/ThemesList";
+import FormTheme from "./components/FormTheme/FormTheme";
+import DeleteTheme from "./components/DeleteTheme/DeleteTheme";
+import CardPost from "./components/CardPost/CardPost";
 
 function App() {
   return (
@@ -22,6 +25,10 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/register" element={<Register />} />
               <Route path="/themes" element={<ThemesList />} />
+              <Route path="/registerTheme" element={<FormTheme />} />
+              <Route path="/editTheme/:id" element={<FormTheme />} />
+              <Route path="/deleteTheme/:id" element={<DeleteTheme />} />
+              <Route path="/post" element={<CardPost />} />
             </Routes>
           </div>
           <Footer />

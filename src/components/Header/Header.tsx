@@ -103,19 +103,18 @@ function Header() {
             alt=""
             className="w-[10rem] ml-5 p-2"
           />
-          {/* {token === "" ? ( */}
-          <button
-            className="h-[9.2vh] w-[6vw] absolute right-4 rounded-lg text-center text-lime-500 text-[1.4em] font-Gilroy-Black border-2 border-lime-500 duration-300 hover:border-white hover:text-white"
-            onClick={() => {
-              setOpen(true);
-            }}
-          >
-            {/* <Link to={"/"}> Login</Link> */}
-          </button>
-          )
-          {/* : (
+          {token === "" ? (
+            <button
+              className="h-[9.2vh] w-[6vw] absolute right-4 rounded-lg text-center text-lime-500 text-[1.4em] font-Gilroy-Black border-2 border-lime-500 duration-300 hover:border-white hover:text-white"
+              onClick={() => {
+                setOpen(true);
+              }}
+            >
+              <Link to={"/"}> Login</Link>
+            </button>
+          ) : (
             "Logout"
-          )} */}
+          )}
         </div>
       </header>
     </>
