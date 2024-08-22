@@ -9,11 +9,17 @@ import Register from "./pages/Register/Register";
 import ThemesList from "./components/ThemesList/ThemesList";
 import FormTheme from "./components/FormTheme/FormTheme";
 import DeleteTheme from "./components/DeleteTheme/DeleteTheme";
-import CardPost from "./components/CardPost/CardPost";
+import FormPost from "./components/FormPost/FormPost";
+import DeletePost from "./components/DeletePost/DeletePost";
+import PostList from "./components/PostList/PostList";
+import CardProfile from "./components/CardProfile/CardProfile";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/ReactToastify.css'
 
 function App() {
   return (
     <>
+      <ToastContainer />
       <AuthProvider>
         <BrowserRouter>
           <Header />
@@ -28,7 +34,11 @@ function App() {
               <Route path="/registerTheme" element={<FormTheme />} />
               <Route path="/editTheme/:id" element={<FormTheme />} />
               <Route path="/deleteTheme/:id" element={<DeleteTheme />} />
-              <Route path="/post" element={<CardPost />} />
+              <Route path="/registerPost" element={<FormPost />} />
+              <Route path="/editPost/:id" element={<FormPost />} />
+              <Route path="/deletePost/:id" element={<DeletePost />} />
+              <Route path="/posts" element={<PostList />} />
+              <Route path="/profile" element={<CardProfile />} />
             </Routes>
           </div>
           <Footer />

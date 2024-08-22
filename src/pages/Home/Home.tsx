@@ -1,4 +1,5 @@
 import Post from "../../components/Post/Post";
+import PostList from "../../components/PostList/PostList";
 
 function Home() {
   return (
@@ -38,15 +39,7 @@ function Home() {
         <h2 className="col-span-3 text-lime-400 font-Gilroy-Black text-3xl text-center m-[3rem]">
           Postagens Recentes
         </h2>
-        <div className="border-2 border-lime-400 rounded-lg h-[15em] m-[3rem]">
-          <Post title={"Alguma coisa"} category={"não sei"} text={"to só testando mesmo pra ver como vai ficar esse bagulho"} />
-        </div>
-        <div className="border-2 border-lime-400 rounded-lg h-[15em] m-[3rem]">
-        <Post title={"Alguma coisa"} category={"não sei"} text={"to só testando mesmo pra ver como vai ficar esse bagulho"} />
-        </div>
-        <div className="border-2 border-lime-400 rounded-lg h-[15em] m-[3rem]">
-        <Post title={"Alguma coisa"} category={"não sei"} text={"to só testando mesmo pra ver como vai ficar esse bagulho"} />
-        </div>
+        <PostList />
       </section>
     </main>
   );

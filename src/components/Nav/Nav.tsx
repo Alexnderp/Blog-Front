@@ -6,6 +6,7 @@ import {
   UserList,
 } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
+import ModalPost from "../ModalPost/ModalPost";
 
 function Nav() {
   return (
@@ -20,10 +21,14 @@ function Nav() {
           </Link>
         </li>
         <li>
-          <User className="text-lime-400 size-[2.5rem] p-[.3rem] duration-500 hover:p-[.1rem] hover:text-white" />
+          <Link to={"/profile"}>
+            <User className="text-lime-400 size-[2.5rem] p-[.3rem] duration-500 hover:p-[.1rem] hover:text-white" />
+          </Link>
         </li>
         <li>
-          <Note className="text-lime-400 size-[2.5rem] p-[.3rem] duration-500 hover:p-[.1rem] hover:text-white" />
+          <div>
+            <ModalPost />
+          </div>
         </li>
         <li>
           <UserList className="text-lime-400 size-[2.5rem] p-[.3rem] duration-500 hover:p-[.1rem] hover:text-white" />

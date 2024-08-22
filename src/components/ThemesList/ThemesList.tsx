@@ -42,7 +42,9 @@ function ThemesList() {
 
   return (
     <>
+    <div className="flex items-center justify-center">
       {themes.length === 0 && <MutatingDots />}
+    </div>
       <div className="flex justify-center w-full py-4">
         <div className="container flex flex-col">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
